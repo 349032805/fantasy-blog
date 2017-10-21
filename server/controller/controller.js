@@ -43,7 +43,7 @@ const getDescribeByCate = async (ctx) => {
 const getBlogsByCate = async (ctx) => {
   let cate = ctx.query.cate;
   let doc = await new Promise((resolve, reject) => {
-    Article.find({ belong: cate }, (err, doc) => {
+    Article.find({ belong: cate }, '-content',(err, doc) => {
       if (err) {
         reject(err);
       }
