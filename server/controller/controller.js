@@ -6,7 +6,7 @@ const WebConfig = require('../model/webConfig.js').WebConfig;
 // 获取所有博客文章,按是否置顶,修改时间倒序
 const getAllBlogs = async (ctx) => {
   let doc = await new Promise((resolve, reject) => {
-    Article.find({isHide: 0}, (err, doc) => {
+    Article.find({isHide: 0}, '-content',(err, doc) => {
       if (err) {
         reject(err);
       }
